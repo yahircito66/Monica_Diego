@@ -3,218 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda Diego & Monica | MTY</title>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <title>Diego y Mónica | Boda Real en Monterrey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,400&family=Montserrat:wght@200;400;600&family=Playfair+Display:ital,wght@0,500;1,600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --gold: #c5a059;
-            --dark: #2c3e50;
-            --bg: #fdfbf7;
-            --white: #ffffff;
-            --border: #e0d8c3;
+            --primary-navy: #1a2c4e;   /* Azul Marino Imperial - Formalidad */
+            --gold-champagne: #d4af37; /* Oro Champagne - Lujo */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-crema: #faf8f5;     /* Fondo Papel Texturizado */
+            --font-heading: 'Playfair Display', serif;
+            --font-subheading: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg); color: var(--dark); line-height: 1.6; }
 
-        /* --- PORTADA IMPACTANTE --- */
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-crema);
+            color: var(--text-dark);
+            text-align: center;
+            line-height: 1.8;
+            overflow-x: hidden;
+            /* Textura sutil de papel */
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+        }
+
+        /* --- SECCIÓN HERO (PORTADA PROFESIONAL) --- */
         header {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(26, 44, 78, 0.5), rgba(26, 44, 78, 0.7)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80') no-repeat center center;
             background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
+            color: var(--text-light);
             padding: 20px;
+            position: relative;
         }
 
-        .header-names { font-family: 'Alex Brush', cursive; font-size: 5.5rem; margin-bottom: 10px; }
-        .header-sub { text-transform: uppercase; letter-spacing: 5px; font-size: 1rem; font-weight: 300; }
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 30px;
+            width: 1px;
+            height: 60px;
+            background: var(--gold-champagne);
+            animation: scrollDown 2s infinite;
+        }
 
-        /* --- BLOQUES ORGANIZADOS (ESCALONADOS) --- */
-        section { padding: 80px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
-        .card { background: var(--white); border: 1px solid var(--border); padding: 50px 30px; margin-bottom: 40px; border-radius: 2px; }
+        .save-date-tag { font-family: var(--font-body); font-size: 0.9rem; letter-spacing: 5px; text-transform: uppercase; color: var(--gold-champagne); font-weight: 200; }
+        h1 { font-family: var(--font-heading); font-size: clamp(3rem, 10vw, 6rem); margin: 20px 0; font-weight: 500; letter-spacing: 2px; }
+        .hero-date { font-family: var(--font-subheading); font-size: 1.6rem; letter-spacing: 3px; font-style: italic; }
+
+        /* --- SECCIONES ESTRUCTURADAS (ESCALONADAS) --- */
+        section { padding: 120px 20px; max-width: 1100px; margin: 0 auto; }
         
-        h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; font-style: italic; }
-        .divider { width: 60px; height: 2px; background: var(--gold); margin: 20px auto; }
+        .section-title { font-family: var(--font-heading); font-size: 3rem; color: var(--primary-navy); margin-bottom: 10px; font-weight: 500; font-style: italic;}
+        .section-subtitle { font-family: var(--font-subheading); font-size: 1.4rem; color: var(--gold-champagne); margin-bottom: 50px; }
+        
+        .card {
+            background: #ffffff;
+            padding: 60px;
+            border-radius: 2px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--gold-champagne);
+        }
 
-        /* --- CUENTA REGRESIVA --- */
-        #countdown { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
-        .time-item { background: var(--dark); color: white; padding: 15px; min-width: 80px; }
-        .time-item span { display: block; font-size: 1.8rem; font-weight: 600; color: var(--gold); }
+        /* --- CUENTA REGRESIVA CON ANILLOS --- */
+        #cuenta-regresiva { position: relative; }
+        #countdown { display: flex; justify-content: center; gap: 30px; margin-top: 50px; flex-wrap: wrap; }
+        .time-box { background: var(--primary-navy); color: var(--text-light); padding: 30px; min-width: 120px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+        .time-box span { display: block; font-size: 3rem; font-family: var(--font-heading); color: var(--gold-champagne); font-weight: 500; }
+        .time-box .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 200; }
+        .rings-bg { position: absolute; top: -50px; left: 50%; transform: translateX(-50%); opacity: 0.05; width: 250px; z-index: -1; }
 
-        /* --- CEREMONIA Y RECEPCIÓN (ORGANIZADO) --- */
-        .event-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
-        .event-box { border-left: 3px solid var(--gold); padding: 20px; text-align: left; background: #fffcf9; }
-        .event-box h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 10px; }
+        /* --- SOBRE NOSOTROS (IMÁGENES DE LOS NOVIOS) --- */
+        .historia-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; text-align: left; margin-top: 60px; }
+        .novios-img { width: 100%; height: 500px; object-fit: cover; border: 1px solid var(--gold-champagne); padding: 10px; border-radius: 2px;}
 
-        /* --- VESTIMENTA (ICONOS) --- */
-        .dress-icons { display: flex; justify-content: center; gap: 50px; margin: 30px 0; }
-        .icon-unit img { width: 70px; opacity: 0.8; margin-bottom: 10px; }
-        .prohibited { border-top: 1px solid #eee; padding-top: 20px; margin-top: 20px; }
-        .dot { width: 30px; height: 30px; border-radius: 50%; display: inline-block; margin: 5px; border: 1px solid #ccc; position: relative; }
-        .dot::after { content: '✕'; color: #b22222; position: absolute; top: 2px; left: 8px; font-weight: bold; }
+        /* --- LOGÍSTICA (IGLESIA Y SALÓN CON IMÁGENES) --- */
+        .event-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; text-align: left;}
+        .event-card { background: white; border: 1px solid #eee; transition: transform 0.3s; }
+        .event-card:hover { transform: translateY(-5px); }
+        .event-img { width: 100%; height: 250px; object-fit: cover; }
+        .event-info { padding: 30px; }
+        .event-info h3 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--primary-navy); margin-bottom: 15px; }
+        .event-icon { width: 25px; vertical-align: middle; margin-right: 10px; opacity: 0.6; }
 
-        /* --- REGALOS (AMAZON Y SOBRE) --- */
-        .gift-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-        .gift-card { padding: 30px; border: 1px solid #eee; transition: 0.3s; }
-        .gift-card:hover { border-color: var(--gold); }
-        .amazon-icon { width: 100px; margin-bottom: 15px; }
+        /* --- CÓDIGO DE VESTIMENTA (ICONOS DE BODA PROFESIONALES) --- */
+        .dress-code-icons { display: flex; justify-content: space-around; gap: 40px; margin: 50px 0; font-family: var(--font-body); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
+        .icon-unit img { width: 80px; opacity: 0.8; margin-bottom: 20px; }
+        
+        .prohibited-zone { border-top: 1px dashed var(--gold-champagne); padding-top: 30px; margin-top: 40px; }
+        .color-dot { width: 45px; height: 45px; border-radius: 50%; display: inline-block; margin: 0 10px; border: 1px solid #ddd; position: relative; }
+        .color-dot::after { content: '✕'; color: #b22222; font-size: 2rem; position: absolute; top: 5px; left: 12px; font-weight: bold; }
 
-        /* --- BOTONES --- */
+        /* --- MESA DE REGALOS (AMAZON Y SOBRE) --- */
+        .gift-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+        .gift-card { padding: 40px; border: 1px solid #eee; text-align: center; }
+        .gift-card:hover { border-color: var(--gold-champagne); }
+        .amazon-logo { width: 120px; margin-bottom: 20px; }
+
+        /* --- BOTONES PREMIUM --- */
         .btn {
-            background: var(--dark);
-            color: white;
-            padding: 15px 35px;
+            background: var(--primary-navy);
+            color: var(--text-light);
+            padding: 20px 40px;
             text-decoration: none;
             display: inline-block;
-            margin-top: 20px;
-            letter-spacing: 2px;
+            margin-top: 30px;
+            letter-spacing: 4px;
             font-size: 0.8rem;
             font-weight: 600;
-            transition: 0.3s;
-            border: 1px solid var(--dark);
+            text-transform: uppercase;
+            transition: 0.3s ease;
+            border: 1px solid var(--primary-navy);
         }
-        .btn:hover { background: transparent; color: var(--dark); }
+        .btn:hover { background: transparent; color: var(--primary-navy); }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .event-grid, .gift-grid { grid-template-columns: 1fr; }
-            .header-names { font-size: 3.5rem; }
+            h1 { font-size: 3.5rem; }
+            section { padding: 80px 15px; }
+            .historia-grid, .event-grid, .gift-grid { grid-template-columns: 1fr; }
+            .card { padding: 30px; }
+            .time-box { padding: 15px; min-width: 80px; }
+            .time-box span { font-size: 2rem; }
+            .dress-code-icons { flex-direction: column; gap: 30px; }
+        }
+
+        @keyframes scrollDown {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(15px); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <p class="header-sub">Nuestra Boda</p>
-        <h1 class="header-names">Diego & Monica</h1>
-        <p class="header-sub">12 de Junio, 2026 | Monterrey</p>
+        <p class="save-date-tag">Nos Unimos</p>
+        <h1>Diego & Monica</h1>
+        <p class="hero-date">Junio 2026 | Monterrey</p>
     </header>
 
-    <section>
-        <div class="card">
-            <h2>Faltan solo...</h2>
-            <div id="countdown">
-                <div class="time-item"><span id="days">00</span>Días</div>
-                <div class="time-item"><span id="hours">00</span>Hrs</div>
-                <div class="time-item"><span id="minutes">00</span>Min</div>
-                <div class="time-item"><span id="seconds">00</span>Seg</div>
+    <section id="cuenta-regresiva">
+        <img src="https://cdn-icons-png.flaticon.com/512/3534/3534346.png" class="rings-bg" alt="Anillos">
+        <h2 class="section-title">El Gran Día</h2>
+        <p class="section-subtitle">Acompaña nuestra historia</p>
+        <div id="countdown">
+            <div class="time-box"><span id="days">00</span><div class="label">Días</div></div>
+            <div class="time-box"><span id="hours">00</span><div class="label">Hrs</div></div>
+            <div class="time-box"><span id="minutes">00</span><div class="label">Min</div></div>
+            <div class="time-box"><span id="seconds">00</span><div class="label">Seg</div></div>
+        </div>
+    </section>
+
+    <section id="historia">
+        <h2 class="section-title">Nuestra Historia</h2>
+        <div class="historia-grid">
+            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800" class="novios-img" alt="Novios Diego y Monica">
+            <div>
+                <p style="font-family: var(--font-subheading); font-size: 1.4rem; font-style: italic; color: var(--gold-champagne); margin-bottom: 20px;">"Lo que sea que nuestras almas estén hechas, la suya y la mía son lo mismo."</p>
+                <p style="font-family: var(--font-body); font-weight: 200;">Monterrey ha sido el escenario de nuestro amor. Desde las montañas que nos rodean hasta el rincón más sencillo de la ciudad, cada momento nos ha llevado a este día.</p>
+                <br>
+                <p style="font-family: var(--font-body); font-weight: 200;">Hoy, con la mayor emoción, los invitamos a presenciar la promesa más importante de nuestras vidas.</p>
             </div>
         </div>
     </section>
 
-    <section>
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456dfe0ba?q=80&w=600" style="width:100%; height:400px; object-fit:cover; margin-bottom:30px; border: 10px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-        <h2>Nuestra Historia</h2>
-        <div class="divider"></div>
-        <p>Después de 6 años compartiendo sueños, hemos decidido dar el paso más importante de nuestras vidas. Monterrey nos ha visto crecer y ahora nos verá unirnos para siempre en este próximo verano del 2026.</p>
-    </section>
-
-    <section>
+    <section id="lugares">
+        <h2 class="section-title">La Celebración</h2>
+        <p class="section-subtitle">Detalles de nuestro evento</p>
+        
         <div class="event-grid">
-            <div class="event-box">
-                <h3>Ceremonia Religiosa</h3>
-                <p><b>17:00 hrs</b></p>
-                <p>Parroquia de Nuestra Señora de Guadalupe</p>
-                <p>Centro de Monterrey, N.L.</p>
-                <a href="#" style="color:var(--gold); font-size: 0.8rem;">Ver Mapa</a>
+            <div class="event-card">
+                <img src="https://images.unsplash.com/photo-1548625316-5b4a9230504d?q=80&w=800" class="event-img" alt="Iglesia Ceremonia">
+                <div class="event-info">
+                    <h3>Ceremonia Religiosa</h3>
+                    <p><b>17:00 hrs</b></p>
+                    <p>Parroquia de Nuestra Señora de Guadalupe</p>
+                    <p>Calle Ficticia #123, Centro de Monterrey</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn" style="padding: 10px 20px; font-size: 0.7rem;">Ver Mapa</a>
+                </div>
             </div>
-            <div class="event-box">
-                <h3>Recepción</h3>
-                <p><b>19:00 hrs</b></p>
-                <p>Salón Cascada Onix</p>
-                <p>Carr. Nacional, Monterrey, N.L.</p>
-                <a href="#" style="color:var(--gold); font-size: 0.8rem;">Ver Mapa</a>
+            
+            <div class="event-card">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800" class="event-img" alt="Salón Recepción Cascada Onix">
+                <div class="event-info">
+                    <h3>Recepción</h3>
+                    <p><b>19:00 hrs</b></p>
+                    <p>Salón Cascada Onix</p>
+                    <p>Carr. Nacional km 256, Monterrey, N.L.</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn" style="padding: 10px 20px; font-size: 0.7rem;">Ver Mapa</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section>
+    <section id="detalles">
         <div class="card">
-            <h2>Código de Vestimenta</h2>
+            <h2 class="section-title" style="font-size: 2.5rem;">Detalles del Evento</h2>
+            
+            <h3 style="margin-top:40px; font-family:var(--font-heading); color: var(--primary-navy);">Código de Vestimenta</h3>
             <p><b>FORMAL / ETIQUETA</b></p>
             
-            <div class="dress-icons">
+            <div class="dress-code-icons">
                 <div class="icon-unit">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3534/3534312.png" alt="Vestido">
-                    <p>Mujeres: Vestido Largo</p>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3534/3534312.png" alt="Icono Vestido Largo">
+                    <p>Mujeres: Vestido Largo de Noche</p>
                 </div>
                 <div class="icon-unit">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1056/1056910.png" alt="Traje">
-                    <p>Hombres: Traje / Smoking</p>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1056/1056910.png" alt="Icono Smoking">
+                    <p>Hombres: Traje Completo o Smoking</p>
                 </div>
             </div>
 
-            <div class="prohibited">
-                <p style="font-size: 0.8rem; letter-spacing: 1px;">COLORES RESERVADOS:</p>
-                <div class="dot" style="background: #fff;" title="Blanco"></div>
-                <div class="dot" style="background: #f5f5dc;" title="Beige"></div>
-                <div class="dot" style="background: #eee;" title="Gris muy claro"></div>
+            <div class="prohibited-zone">
+                <p style="font-size: 0.9rem; letter-spacing: 1px; color: var(--gold-champagne); margin-bottom: 20px;">COLORES RESERVADOS PARA LA NOVIA:</p>
+                <div class="color-dot" style="background: #ffffff;" title="Blanco"></div>
+                <div class="color-dot" style="background: #f5f5dc;" title="Beige"></div>
+                <div class="color-dot" style="background: #eee;" title="Gris muy claro"></div>
             </div>
-        </div>
-    </section>
 
-    <section>
-        <h2>Mesa de Regalos</h2>
-        <div class="divider"></div>
-        <p>Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle:</p>
-        
-        <div class="gift-grid">
-            <div class="gift-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="amazon-icon">
-                <p>Nuestra lista de Amazon con artículos para nuestro nuevo hogar.</p>
-                <a href="#" class="btn">Ver Lista</a>
-            </div>
-            <div class="gift-card">
-                <div style="font-size: 3rem; margin-bottom: 10px;">✉</div>
-                <h3>Lluvia de Sobres</h3>
-                <p>Contaremos con un espacio especial para sobres en la recepción.</p>
-            </div>
-        </div>
-    </section>
+            <hr style="border:0; border-top:1px solid #eee; margin: 60px 0;">
 
-    <section>
-        <div class="card" style="background: var(--dark); color: white;">
-            <h2 style="color: var(--gold);">Nuestras Canciones</h2>
-            <p style="opacity: 0.8;">Las que definen nuestro amor</p>
-            <div class="event-grid" style="text-align: center;">
-                <div>
-                    <p><b>Diego:</b></p>
-                    <p>"Something" - The Beatles</p>
+            <h3 style="font-family:var(--font-heading); color: var(--primary-navy);">Mesa de Regalos</h3>
+            <p style="margin-bottom: 30px;">Su presencia es nuestro mayor honor, pero si desean tener un detalle con nosotros:</p>
+            
+            <div class="gift-grid">
+                <div class="gift-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="amazon-logo" alt="Amazon Logo">
+                    <p>Nuestra lista de regalos para el nuevo hogar.</p>
+                    <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.7rem;">Ver Lista en Amazon</a>
                 </div>
-                <div>
-                    <p><b>Monica:</b></p>
-                    <p>"Yellow" - Coldplay</p>
+                <div class="gift-card">
+                    <div style="font-size: 3rem; color: var(--gold-champagne);">✉</div>
+                    <h3>Lluvia de Sobres</h3>
+                    <p>Contaremos con un espacio especial para recibir sobres el día del evento.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2>Confirmar Asistencia</h2>
-        <p>Agradecemos confirmar antes del 15 de Mayo de 2026.</p>
-        <a href="https://wa.me/528100000000" class="btn">Confirmar vía WhatsApp</a>
+    <section id="confirmacion">
+        <h2 class="section-title">Confirmar Asistencia</h2>
+        <p>Tu confirmación es vital para la planeación.<br>Agradecemos confirmar antes del <strong>15 de Mayo de 2026</strong>.</p>
+        <a href="https://wa.me/5218100000000?text=Hola%20Diego%20y%20Monica,%20confirmo%20mi%20asistencia" class="btn">Confirmar por WhatsApp</a>
     </section>
 
-    <footer style="padding: 40px; text-align: center; font-size: 0.8rem; background: #eee;">
-        D & M | Monterrey 2026
+    <footer style="padding: 50px; text-align: center; font-size: 0.8rem; letter-spacing: 2px; color: #888; background-color: #f0f0f0;">
+        D & M | Monterrey, Nuevo León | Junio 2026
     </footer>
 
     <script>
-        const weddingDate = new Date("Jun 12, 2026 17:00:00").getTime();
-        setInterval(function() {
+        // Configura la fecha de la boda aquí (Año, Mes-1, Día, Hora, Min, Seg)
+        const weddingDate = new Date(2026, 5, 12, 17, 0, 0).getTime(); // 12 de Junio, 2026
+
+        const timer = setInterval(function() {
             const now = new Date().getTime();
             const dist = weddingDate - now;
-            document.getElementById("days").innerHTML = Math.floor(dist / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerHTML = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerHTML = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerHTML = Math.floor((dist % (1000 * 60)) / 1000);
+
+            if (dist < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "<h3 style='color:var(--gold-champagne); font-family:var(--font-heading);'>¡Hoy es el gran día!</h3>";
+                return;
+            }
+
+            const d = Math.floor(dist / (1000 * 60 * 60 * 24));
+            const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((dist % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = d < 10 ? '0'+d : d;
+            document.getElementById("hours").innerHTML = h < 10 ? '0'+h : h;
+            document.getElementById("minutes").innerHTML = m < 10 ? '0'+m : m;
+            document.getElementById("seconds").innerHTML = s < 10 ? '0'+s : s;
+
         }, 1000);
     </script>
 </body>
