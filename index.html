@@ -3,322 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda Real - Diego & Monica</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Prata&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <title>Diego & Monica | MTY 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Montserrat:wght@200;400&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-navy: #1a253a;   /* Azul Marino Profundo - Profesionalismo */
-            --gold-champagne: #d4af37; /* Oro Champagne - Lujo */
-            --text-dark: #333333;
-            --text-light: #ffffff;
-            --bg-light: #f4f4f4;
-            /* Fuentes */
-            --font-heading: 'Cinzel', serif; /* Para títulos principales */
-            --font-subheading: 'Prata', serif; /* Para nombres y subtítulos */
-            --font-body: 'Montserrat', sans-serif; /* Para texto legible */
+            --dark-navy: #0a1128; /* Azul noche profundo */
+            --gold-leaf: #d4af37; /* Oro clásico */
+            --off-white: #fcfaf8; /* Papel artesanal */
+            --soft-gray: #e5e5e5;
+            --prohibited-red: #a52a2a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: var(--font-body);
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            text-align: center;
-            line-height: 1.8;
-            overflow-x: hidden;
+            background-color: var(--off-white);
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--dark-navy);
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- SECCIÓN HERO (PORTADA) --- */
-        header {
+        /* --- TEXTURA DE PAPEL (Venta Pro) --- */
+        .paper-texture {
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            min-height: 100vh;
+        }
+
+        /* --- MARCO DORADO --- */
+        .frame-container {
+            border: 1px solid var(--gold-leaf);
+            margin: 20px;
+            padding: 10px;
+            position: relative;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(26, 37, 58, 0.6), rgba(26, 37, 58, 0.8)), 
-                        url('https://images.unsplash.com/photo-1511285560929-80b456dfe0ba?q=80&w=1920') no-repeat center center;
-            background-size: cover;
-            color: var(--text-light);
-            padding: 20px;
+            text-align: center;
             position: relative;
+            background: linear-gradient(rgba(10, 17, 40, 0.4), rgba(10, 17, 40, 0.4)), 
+                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            clip-path: inset(20px); /* Crea el efecto de marco interno */
         }
 
-        header::after {
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 400;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            font-size: 0.9rem;
+            font-weight: 200;
+        }
+
+        /* --- SECCIONES ELEGANTES --- */
+        section { padding: 120px 20px; max-width: 1000px; margin: 0 auto; text-align: center; }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
             content: '';
             position: absolute;
-            bottom: 30px;
-            width: 2px;
-            height: 50px;
-            background: var(--gold-champagne);
-            animation: scrollDown 2s infinite;
+            bottom: -10px;
+            left: 25%;
+            width: 50%;
+            height: 1px;
+            background: var(--gold-leaf);
         }
 
-        .save-the-date { font-family: var(--font-heading); font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-champagne); }
-        h1 { font-family: var(--font-subheading); font-size: 5.5rem; margin: 15px 0; font-weight: 400; }
-        .hero-date { font-family: var(--font-heading); font-size: 1.5rem; letter-spacing: 2px; }
-
-        /* --- SECCIONES GENERALES --- */
-        section { padding: 100px 20px; max-width: 1100px; margin: 0 auto; }
-        h2 { font-family: var(--font-heading); font-size: 2.8rem; color: var(--primary-navy); margin-bottom: 10px; font-weight: 600; }
-        .subtitle { font-family: var(--font-subheading); font-size: 1.3rem; color: var(--gold-champagne); margin-bottom: 40px; }
-        
-        .card {
-            background: #ffffff;
-            padding: 50px;
-            border-radius: 4px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--gold-champagne);
-        }
-
-        /* --- CUENTA REGRESIVA --- */
-        #countdown { display: flex; justify-content: center; gap: 25px; margin-top: 40px; flex-wrap: wrap; }
-        .time-box { 
-            background: var(--primary-navy); 
-            color: var(--text-light);
-            padding: 25px; 
-            border-radius: 4px; 
-            min-width: 110px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .time-box span { display: block; font-size: 2.5rem; font-family: var(--font-heading); color: var(--gold-champagne); font-weight: 600; }
-        .time-box .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
-
-        /* --- NUESTRA HISTORIA --- */
-        #nosotros .historia-content {
+        /* --- NUESTRA HISTORIA (GRID PRO) --- */
+        .story-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
             align-items: center;
+            margin-top: 60px;
             text-align: left;
         }
-        #nosotros img { width: 100%; border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        #nosotros .gold-divider { border: 0; border-top: 2px solid var(--gold-champagne); width: 60px; margin: 20px 0; }
 
-        /* --- GALERÍA DE LOS NOVIOS --- */
-        #galeria .grid-galeria {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        #galeria img {
+        .story-img {
             width: 100%;
-            height: 300px;
+            height: 500px;
             object-fit: cover;
-            border-radius: 4px;
-            transition: transform 0.3s ease;
-        }
-        #galeria img:hover { transform: scale(1.03); }
-
-        /* --- UBICACIÓN --- */
-        .venue-img { width: 100%; height: 300px; object-fit: cover; margin-bottom: 20px; border-radius: 4px; }
-
-        /* --- CÓDIGO DE VESTIMENTA (STYLING SOLICITADO) --- */
-        .dress-code-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .dress-item {
-            border: 1px solid #eee;
-            padding: 30px;
-            border-radius: 4px;
-        }
-        .icon-svg { width: 60px; height: 60px; fill: var(--primary-navy); margin-bottom: 15px; }
-        
-        .prohibited-colors { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;}
-        .prohibited-title { font-weight: 600; color: #b22222; margin-bottom: 15px; text-transform: uppercase; font-size: 0.9rem;}
-        .color-circles { display: flex; justify-content: center; gap: 15px; }
-        .color-dot { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #ddd; position: relative; }
-        .color-dot.white { background-color: #ffffff; }
-        .color-dot.beige { background-color: #f5f5dc; }
-        .color-dot.light-pink { background-color: #ffb6c1; }
-        /* Cruz roja sobre el color */
-        .color-dot::after {
-            content: '✕';
-            color: #b22222;
-            font-size: 1.5rem;
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            font-weight: bold;
+            filter: sepia(0.2) contrast(1.1);
+            border: 1px solid var(--gold-leaf);
+            padding: 10px;
         }
 
-        /* --- BOTONES --- */
-        .btn {
-            background: var(--primary-navy);
-            color: var(--text-light);
-            padding: 18px 35px;
-            text-decoration: none;
-            border-radius: 2px;
-            display: inline-block;
-            transition: 0.3s ease;
-            font-weight: 600;
-            text-transform: uppercase;
+        /* --- VESTIMENTA (ESTILO INFOGRAFÍA DE LUJO) --- */
+        .dress-code-box {
+            background: white;
+            padding: 60px;
+            border: 0.5px solid var(--soft-gray);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+        }
+
+        .icon-row {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
             letter-spacing: 2px;
-            font-size: 0.9rem;
-            border: 2px solid var(--primary-navy);
-            margin-top: 20px;
+            text-transform: uppercase;
         }
-        .btn:hover { background: transparent; color: var(--primary-navy); }
 
-        .btn-gold { background: var(--gold-champagne); border-color: var(--gold-champagne); color: var(--primary-navy); }
-        .btn-gold:hover { background: transparent; color: var(--gold-champagne); }
+        .prohibited-zone {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px dashed var(--gold-leaf);
+        }
 
-        /* --- RESPONSIVE --- */
+        .color-circle {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 15px;
+            position: relative;
+            border: 1px solid #ddd;
+        }
+
+        .color-circle::before {
+            content: '';
+            position: absolute;
+            width: 120%;
+            height: 1px;
+            background: var(--prohibited-red);
+            top: 50%; left: -10%;
+            transform: rotate(-45deg);
+        }
+
+        /* --- COUNTDOWN MINIMALISTA --- */
+        .counter-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .counter-item b { font-size: 3.5rem; font-family: 'Playfair Display'; display: block; font-weight: 400;}
+        .counter-item span { text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; font-family: 'Montserrat'; }
+
+        /* --- PLAYLIST --- */
+        .playlist-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .song-box {
+            padding: 30px;
+            border: 1px solid var(--gold-leaf);
+            min-width: 300px;
+            font-style: italic;
+        }
+
+        /* --- BOTONES DE DISEÑO --- */
+        .btn-luxe {
+            background: var(--dark-navy);
+            color: white;
+            padding: 20px 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            transition: 0.4s;
+            display: inline-block;
+            margin-top: 30px;
+            border: 1px solid var(--dark-navy);
+        }
+
+        .btn-luxe:hover {
+            background: transparent;
+            color: var(--dark-navy);
+        }
+
         @media (max-width: 768px) {
-            h1 { font-size: 3.5rem; }
-            section { padding: 60px 15px; }
-            #nosotros .historia-content { grid-template-columns: 1fr; text-align: center; }
-            #nosotros .gold-divider { margin: 20px auto; }
-            .card { padding: 30px 20px; }
-            .dress-code-container { grid-template-columns: 1fr; }
-        }
-
-        @keyframes scrollDown {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(20px); opacity: 0; }
+            .story-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3.5rem; }
+            .counter-container { gap: 15px; }
+            .counter-item b { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <p class="save-the-date">Save the Date</p>
+<div class="paper-texture">
+    <header class="hero">
+        <p>Save The Date</p>
         <h1>Diego & Monica</h1>
-        <p class="hero-date">Junio 2026 | Monterrey, N.L.</p>
+        <p>12 . 06 . 2026 | Monterrey</p>
     </header>
 
-    <section id="cuenta-regresiva">
-        <h2>El Gran Día</h2>
-        <p class="subtitle">Estamos preparando todo para celebrar junto a ti</p>
-        <div class="card">
-            <div id="countdown">
-                <div class="time-box"><span id="days">00</span><div class="label">Días</div></div>
-                <div class="time-box"><span id="hours">00</span><div class="label">Horas</div></div>
-                <div class="time-box"><span id="minutes">00</span><div class="label">Min</div></div>
-                <div class="time-box"><span id="seconds">00</span><div class="label">Seg</div></div>
-            </div>
-            <p style="margin-top: 30px; font-style: italic; color: #666;">Nota: Monterrey en junio suele ser caluroso, la recepción será en espacio climatizado.</p>
+    <section>
+        <div class="counter-container">
+            <div class="counter-item"><b id="days">00</b><span>Días</span></div>
+            <div class="counter-item"><b id="hours">00</b><span>Hrs</span></div>
+            <div class="counter-item"><b id="minutes">00</b><span>Min</span></div>
+            <div class="counter-item"><b id="seconds">00</b><span>Seg</span></div>
         </div>
     </section>
 
-    <section id="nosotros">
-        <h2>Nuestra Historia</h2>
-        <p class="subtitle">Un camino que decidimos recorrer juntos</p>
-        <div class="historia-content">
-            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800" alt="Diego y Monica Sonriendo">
+    <section id="historia">
+        <h2 class="section-title">Nuestra Unión</h2>
+        <div class="story-grid">
+            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800" class="story-img" alt="Novios">
             <div>
-                <p><strong>El inicio de algo eterno...</strong></p>
-                <hr class="gold-divider">
-                <p>Nuestra historia no fue casualidad. Desde el primer café en Barrio Antiguo hasta los viajes que han marcado nuestras vidas, supimos que estábamos destinados.</p>
-                <br>
-                <p>Hoy, frente a las montañas de Monterrey, queremos hacer la promesa más importante de nuestras vidas y nos encantaría que fueses testigo de este amor.</p>
+                <p style="font-size: 1.4rem; font-style: italic; margin-bottom: 20px;">“Lo que sea que nuestras almas estén hechas, la suya y la mía son lo mismo.”</p>
+                <p style="font-family: 'Montserrat', sans-serif; font-weight: 200; line-height: 2;">Tras años de complicidad y risas bajo el sol de Monterrey, hemos decidido comenzar nuestra aventura más grande. Queremos invitarte a ser parte de la firma de nuestro amor eterno.</p>
             </div>
         </div>
     </section>
 
-    <section id="galeria">
-        <h2>Momentos</h2>
-        <p class="subtitle">Un vistazo a nuestra felicidad</p>
-        <div class="grid-galeria">
-            <img src="https://images.unsplash.com/photo-1591604466107-dd9ba4651e36?q=80&w=600" alt="Foto Novios 1">
-            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=600" alt="Foto Novios 2">
-            <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=600" alt="Foto Novios 3">
-        </div>
-    </section>
-
-    <section id="lugar">
-        <div class="card">
-            <h2>Ubicación</h2>
-            <p class="subtitle">La celebración en el corazón de Monterrey</p>
-            <img src="https://images.unsplash.com/photo-1522413416434-7168b361aa25?q=80&w=1000" alt="Cascada Onix Venue" class="venue-img">
-            <h3>Cascada Onix</h3>
-            <p>Dirección Formal del Salón #456,<br>Colonia Centro, Monterrey, N.L. C.P. 64000</p>
-            <a href="https://maps.google.com" target="_blank" class="btn">Ver Mapa y Ruta</a>
-        </div>
-    </section>
-
-    <section id="detalles">
-        <h2>Detalles Importantes</h2>
-        <p class="subtitle">Todo lo que necesitas saber</p>
-        
-        <div class="card">
-            <h3>Código de Vestimenta</h3>
-            <p><strong>Formal / Etiqueta</strong></p>
+    <section>
+        <div class="dress-code-box">
+            <h2 class="section-title" style="font-size: 2.2rem;">Código de Vestimenta</h2>
+            <p style="text-transform: uppercase; letter-spacing: 4px; font-weight: 200;">Etiqueta Rigurosa</p>
             
-            <div class="dress-code-container">
-                <div class="dress-item">
-                    <svg class="icon-svg" viewBox="0 0 64 64"><path d="M48,12c0-2.209-1.791-4-4-4s-4,1.791-4,4v2H24v-2c0-2.209-1.791-4-4-4s-4,1.791-4,4v2.031C11.666,15.688,8,21.5,8,28.5 c0,6.01,2.693,11.373,6.837,14.938L12,62h40l-2.837-18.562C53.307,39.873,56,34.51,56,28.5c0-7-3.666-12.812-8-14.469V12z"/></svg>
-                    <p>Vestido largo de noche.</p>
+            <div class="icon-row">
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3534/3534312.png" width="50" style="opacity: 0.7;" alt="Vestido">
+                    <p style="margin-top:10px">Vestido Largo</p>
                 </div>
-                <div class="dress-item">
-                    <svg class="icon-svg" viewBox="0 0 64 64"><path d="M32,4c-3.3,0-6,2.7-6,6v2H16c-2.2,0-4,1.8-4,4v44h40V16c0-2.2-1.8-4-4-4H38v-2C38,6.7,35.3,4,32,4z M32,8c1.1,0,2,0.9,2,2v2h-4v-2C30,8.9,30.9,8,32,8z M44,56H20V20l12,6l12-6V56z"/></svg>
-                    <p>Traje formal completo (corbata opcional).</p>
-                </div>
-            </div>
-
-            <div class="prohibited-colors">
-                <p class="prohibited-title">Colores Reservados para la Novia y Corte</p>
-                <p style="font-size: 0.9rem; margin-bottom: 15px;">Agradecemos evitar los siguientes tonos:</p>
-                <div class="color-circles">
-                    <div class="color-dot white" title="Blanco / Ivory"></div>
-                    <div class="color-dot beige" title="Beige / Crema"></div>
-                    <div class="color-dot light-pink" title="Rosa Muy Palo"></div>
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1056/1056910.png" width="50" style="opacity: 0.7;" alt="Smoking">
+                    <p style="margin-top:10px">Smoking / Traje</p>
                 </div>
             </div>
 
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
-
-            <h3>Regalo</h3>
-            <p>Nuestra mayor bendición es contar con tu presencia.</p>
-            <p>Si deseas tener un detalle con nosotros, contaremos con <strong>Lluvia de Sobres</strong> en la recepción.</p>
+            <div class="prohibited-zone">
+                <p style="letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 20px;">COLORES EXCLUSIVOS DE LA NOVIA Y CORTE:</p>
+                <div class="color-circle" style="background: #ffffff;" title="Blanco"></div>
+                <div class="color-circle" style="background: #f5f5dc;" title="Beige"></div>
+                <div class="color-circle" style="background: #fffafa;" title="Marfil"></div>
+            </div>
         </div>
     </section>
 
-    <section id="confirmacion">
-        <div class="card" style="background: var(--primary-navy); color: var(--text-light);">
-            <h2 style="color: var(--gold-champagne);">R.S.V.P.</h2>
-            <p class="subtitle" style="color: var(--text-light); opacity: 0.8;">Por favor, confirma tu asistencia</p>
-            <p>Tu confirmación es fundamental para la planeación del evento.<br>Agradecemos confirmar antes del <strong>1 de Mayo, 2026</strong>.</p>
-            <a href="https://wa.me/5218100000000?text=Hola%20Diego%20y%20Monica,%20confirmo%20mi%20asistencia" class="btn btn-gold">Confirmar por WhatsApp</a>
+    <section>
+        <h2 class="section-title">La Celebración</h2>
+        <p style="font-size: 1.5rem; margin-bottom: 10px;">Cascada Onix</p>
+        <p style="font-family: 'Montserrat'; font-weight: 200; text-transform: uppercase; letter-spacing: 3px;">Monterrey, Nuevo León, México</p>
+        <p style="margin-top: 20px; font-style: italic;">La ceremonia iniciará puntualmente a las 18:00 hrs.</p>
+        <a href="#" class="btn-luxe">Ver Ubicación en Mapa</a>
+    </section>
+
+    <section>
+        <h2 class="section-title">Melodías del Corazón</h2>
+        <div class="playlist-container">
+            <div class="song-box">
+                <p>La elección de Diego:</p>
+                <p style="font-size: 1.4rem; color: var(--gold-leaf);">Everything - Michael Bublé</p>
+            </div>
+            <div class="song-box">
+                <p>La elección de Mónica:</p>
+                <p style="font-size: 1.4rem; color: var(--gold-leaf);">L-O-V-E - Nat King Cole</p>
+            </div>
         </div>
     </section>
 
-    <footer style="padding: 50px; font-size: 0.9rem; color: #888; background-color: #f0f0f0;">
-        <p style="font-family: var(--font-heading); color: var(--primary-navy); letter-spacing: 2px;">D & M</p>
-        <p>Monterrey, Nuevo León | 2026</p>
+    <section>
+        <h2 class="section-title">Presente</h2>
+        <p style="max-width: 600px; margin: 0 auto; font-size: 1.2rem;">Su presencia es nuestro mayor honor. Sin embargo, si desean obsequiarnos algo, agradeceremos que sea mediante <b>Lluvia de Sobres</b> el día del evento.</p>
+        <br>
+        <a href="#" class="btn-luxe" style="background: transparent; color: var(--dark-navy);">Confirmar Asistencia</a>
+    </section>
+
+    <footer style="padding: 100px 20px; text-align: center; opacity: 0.5; font-size: 0.8rem; letter-spacing: 2px;">
+        DIEGO & MONICA | MMXVI - MMXXVI
     </footer>
+</div>
 
-    <script>
-        // --- SCRIPT DEL CONTADOR ---
-        // Configura la fecha exacta de la boda aquí (Año, Mes-1, Día, Hora, Min, Seg)
-        // Ejemplo: 12 de Junio, 2026, 18:00 hrs. (El mes es 0-indexado, junio es 5)
-        const weddingDate = new Date(2026, 5, 12, 18, 0, 0).getTime();
+<script>
+    const weddingDate = new Date("Jun 12, 2026 18:00:00").getTime();
 
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
+    setInterval(function() {
+        const now = new Date().getTime();
+        const dist = weddingDate - now;
+        
+        document.getElementById("days").innerHTML = Math.floor(dist / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").innerHTML = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").innerHTML = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").innerHTML = Math.floor((dist % (1000 * 60)) / 1000);
+    }, 1000);
+</script>
 
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("countdown").innerHTML = "<h3 style='color:var(--gold-champagne); font-family:var(--font-heading);'>¡Hoy es el gran día!</h3>";
-                return;
-            }
-
-            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerHTML = d < 10 ? '0'+d : d;
-            document.getElementById("hours").innerHTML = h < 10 ? '0'+h : h;
-            document.getElementById("minutes").innerHTML = m < 10 ? '0'+m : m;
-            document.getElementById("seconds").innerHTML = s < 10 ? '0'+s : s;
-
-        }, 1000);
-    </script>
 </body>
 </html>
