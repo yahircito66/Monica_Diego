@@ -3,182 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diego & Monica | Wedding 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100;300;400;600&display=swap" rel="stylesheet">
+    <title>Diego & Monica | Boda 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #b39659;
             --dark: #1a1a1a;
-            --soft-bg: #fdfdfd;
-            --border: #ececec;
+            --gold: #b39659;
+            --bg: #ffffff;
+            --gray: #f4f4f4;
+            --text-muted: #666;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--soft-bg); color: var(--dark); line-height: 1.7; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg); color: var(--dark); line-height: 1.6; }
 
-        /* --- SECCIÓN HERO --- */
+        /* --- PORTADA (HERO) --- */
         header {
             height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
             text-align: center;
-            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), 
-                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
         }
 
-        .hero-box { background: rgba(255,255,255,0.85); padding: 60px 40px; border: 1px solid var(--gold); backdrop-filter: blur(5px); }
-        .hero-box h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 400; margin: 20px 0; }
-        .hero-box p { text-transform: uppercase; letter-spacing: 6px; font-size: 0.8rem; font-weight: 300; }
+        .hero-content { background: rgba(255,255,255,0.9); padding: 60px 80px; color: var(--dark); border: 1px solid var(--gold); }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 400; margin: 15px 0; letter-spacing: 2px; }
+        .hero-content p { text-transform: uppercase; letter-spacing: 5px; font-size: 0.75rem; font-weight: 300; }
 
-        /* --- CONTENEDOR --- */
-        .container { max-width: 1000px; margin: 0 auto; padding: 100px 20px; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; text-align: center; margin-bottom: 60px; font-style: italic; }
+        /* --- CONTENEDOR GENERAL --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 100px 20px; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; font-style: italic; }
+        .divider { width: 40px; height: 1px; background: var(--gold); margin: 20px auto; }
 
         /* --- CUENTA REGRESIVA --- */
-        .countdown { display: flex; justify-content: center; gap: 30px; margin-bottom: 80px; }
-        .count-item { text-align: center; }
-        .count-item b { display: block; font-family: 'Playfair Display'; font-size: 3rem; color: var(--gold); font-weight: 400; }
-        .count-item span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; }
+        .countdown { display: flex; justify-content: center; gap: 40px; margin-bottom: 100px; }
+        .count-unit { text-align: center; }
+        .count-unit b { display: block; font-family: 'Playfair Display'; font-size: 3.5rem; font-weight: 400; color: var(--gold); }
+        .count-unit span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-muted); }
 
-        /* --- EVENTOS (ESTRUCTURA LIMPIA) --- */
-        .event-card { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 100px; }
-        .event-card.reverse { direction: rtl; }
-        .event-card.reverse .event-info { direction: ltr; }
-        .event-img { width: 100%; height: 450px; object-fit: cover; border-radius: 2px; box-shadow: 20px 20px 0px -5px var(--border); }
-        .event-info h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; }
-        .event-info p { font-weight: 300; margin-bottom: 20px; }
-
-        /* --- DRESS CODE (ICONOS PROFESIONALES) --- */
-        .dress-code-section { background: #fff; padding: 80px 40px; border: 1px solid var(--border); text-align: center; }
-        .dress-flex { display: flex; justify-content: center; gap: 80px; margin: 40px 0; }
+        /* --- LOGÍSTICA (IMÁGENES DE INTERNET) --- */
+        .logistics-row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 120px; align-items: center; }
+        .logistics-row.reverse { direction: rtl; }
+        .logistics-row.reverse .log-text { direction: ltr; }
         
-        /* Iconos Dibujados (SVG) */
-        .icon-svg { width: 60px; height: 100px; margin-bottom: 15px; }
-        .icon-label { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
+        .log-img { width: 100%; height: 500px; object-fit: cover; box-shadow: 15px 15px 0px var(--gray); }
+        .log-text h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px; }
+        .log-text p { font-weight: 300; color: var(--text-muted); margin-bottom: 30px; }
 
-        .prohibited { margin-top: 40px; border-top: 1px solid var(--border); padding-top: 30px; }
-        .color-dot { width: 35px; height: 35px; border-radius: 50%; display: inline-block; margin: 0 10px; border: 1px solid #eee; position: relative; }
-        .color-dot::after { content: '✕'; color: #d9534f; position: absolute; top: 5px; left: 10px; font-weight: bold; }
+        /* --- DRESS CODE (ICONOS ESTILO LOS QUE ENVIASTE) --- */
+        .dress-code-card { background: var(--gray); padding: 80px 40px; text-align: center; }
+        .dress-icons { display: flex; justify-content: center; gap: 100px; margin: 50px 0; }
+        
+        .icon-box { text-align: center; width: 120px; }
+        .icon-box svg { width: 60px; height: auto; fill: none; stroke: var(--dark); stroke-width: 1.2; margin-bottom: 20px; }
+        .icon-box span { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
 
-        /* --- REGALOS (ESTILO BOUTIQUE) --- */
-        .gift-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
-        .gift-item { padding: 50px; border: 1px solid var(--border); background: #fff; transition: 0.3s; }
+        .prohibited { margin-top: 40px; border-top: 1px solid #ddd; padding-top: 30px; }
+        .dot { width: 30px; height: 30px; border-radius: 50%; display: inline-block; margin: 0 8px; border: 1px solid #ccc; position: relative; }
+        .dot::after { content: '✕'; color: #c0392b; position: absolute; top: 4px; left: 9px; font-weight: bold; }
+
+        /* --- REGALOS (AMAZON & SOBRE) --- */
+        .gifts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px; }
+        .gift-item { padding: 60px; border: 1px solid var(--gray); text-align: center; transition: 0.3s; }
         .gift-item:hover { border-color: var(--gold); }
-        .amazon-btn { background: var(--dark); color: white; padding: 15px 30px; text-decoration: none; font-size: 0.7rem; letter-spacing: 2px; display: inline-block; margin-top: 20px; }
+        .amazon-logo { width: 110px; margin-bottom: 25px; filter: grayscale(1); }
 
         /* --- BOTONES --- */
-        .btn-main { background: none; border: 1px solid var(--dark); color: var(--dark); padding: 18px 40px; text-decoration: none; display: inline-block; text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; transition: 0.3s; }
-        .btn-main:hover { background: var(--dark); color: #fff; }
+        .btn {
+            display: inline-block;
+            padding: 18px 45px;
+            border: 1px solid var(--dark);
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn:hover { background: var(--dark); color: white; }
 
         @media (max-width: 768px) {
-            .event-card { grid-template-columns: 1fr; }
-            .event-img { height: 300px; }
-            .dress-flex { gap: 40px; }
-            .gift-grid { grid-template-columns: 1fr; }
+            .logistics-row { grid-template-columns: 1fr; }
+            .hero-content { padding: 40px 20px; width: 90%; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .dress-icons { gap: 30px; }
+            .gifts-grid { grid-template-columns: 1fr; }
+            .countdown { gap: 15px; }
+            .count-unit b { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="hero-box">
-            <p>Save The Date</p>
+        <div class="hero-content">
+            <p>Save Our Date</p>
             <h1>Diego & Monica</h1>
-            <p>12 . 06 . 2026 | Monterrey</p>
+            <p>12 . Junio . 2026 | Monterrey</p>
         </div>
     </header>
 
     <div class="container">
         
         <div class="countdown">
-            <div class="count-item"><b id="days">00</b><span>Días</span></div>
-            <div class="count-item"><b id="hours">00</b><span>Hrs</span></div>
-            <div class="count-item"><b id="minutes">00</b><span>Min</span></div>
-            <div class="count-item"><b id="seconds">00</b><span>Seg</span></div>
+            <div class="count-unit"><b id="days">00</b><span>Días</span></div>
+            <div class="count-unit"><b id="hours">00</b><span>Horas</span></div>
+            <div class="count-unit"><b id="minutes">00</b><span>Minutos</span></div>
+            <div class="count-unit"><b id="seconds">00</b><span>Segundos</span></div>
         </div>
 
-        <h2 class="section-title">La Celebración</h2>
+        <section class="section-header">
+            <span style="text-transform:uppercase; letter-spacing: 4px; font-size: 0.7rem; color: var(--gold);">Ubicaciones</span>
+            <h2>Dónde Celebraremos</h2>
+            <div class="divider"></div>
+        </section>
 
-        <div class="event-card">
-            <img src="https://images.unsplash.com/photo-1548625316-5b4a9230504d?auto=format&fit=crop&w=800&q=80" class="event-img">
-            <div class="event-info">
-                <span class="icon-label" style="color:var(--gold)">La Unión</span>
+        <div class="logistics-row">
+            <img src="https://images.unsplash.com/photo-1548625316-5b4a9230504d?auto=format&fit=crop&w=800" class="log-img" alt="Iglesia">
+            <div class="log-text">
                 <h3>Ceremonia Religiosa</h3>
-                <p>Acompáñanos a las 17:00 hrs en la Parroquia de Nuestra Señora de Guadalupe, Centro Monterrey.</p>
-                <a href="#" class="btn-main">Ver Mapa</a>
+                <p>La unión sagrada se llevará a cabo a las 17:00 hrs en la Parroquia de Nuestra Señora de Guadalupe, en el corazón de Monterrey.</p>
+                <a href="#" class="btn">Ver Mapa</a>
             </div>
         </div>
 
-        <div class="event-card reverse">
-            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" class="event-img">
-            <div class="event-info">
-                <span class="icon-label" style="color:var(--gold)">El Festejo</span>
+        <div class="logistics-row reverse">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800" class="log-img" alt="Salón">
+            <div class="log-text">
                 <h3>Recepción de Gala</h3>
-                <p>Celebremos juntos a partir de las 19:30 hrs en el Salón Cascada Onix, Carretera Nacional.</p>
-                <a href="#" class="btn-main">Ver Mapa</a>
+                <p>Posteriormente, celebraremos con una cena de gala en el Salón Cascada Onix a partir de las 19:30 hrs.</p>
+                <a href="#" class="btn">Ver Mapa</a>
             </div>
         </div>
 
-        <div class="dress-code-section">
-            <h2 class="section-title" style="margin-bottom: 20px;">Código de Vestimenta</h2>
-            <p style="letter-spacing: 4px; font-weight: 300;">ETIQUETA RIGUROSA</p>
+        <section class="dress-code-card">
+            <h2 style="font-family: 'Playfair Display'; font-size: 2rem;">Código de Vestimenta</h2>
+            <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; margin-top: 10px;">Etiqueta Rigurosa</p>
             
-            <div class="dress-flex">
-                <div class="dress-item">
-                    <svg class="icon-svg" viewBox="0 0 50 100">
-                        <path d="M25 10 L15 35 L10 90 L40 90 L35 35 Z" fill="none" stroke="black" stroke-width="1"/>
-                        <path d="M15 35 Q25 40 35 35" fill="none" stroke="black" stroke-width="1"/>
+            <div class="dress-icons">
+                <div class="icon-box">
+                    <svg viewBox="0 0 50 100">
+                        <path d="M25 10 L15 35 L5 90 L45 90 L35 35 Z" />
+                        <path d="M15 35 Q25 42 35 35" />
+                        <circle cx="25" cy="10" r="1.5" fill="black" />
                     </svg>
-                    <div class="icon-label">Vestido Largo</div>
+                    <span>Vestido Largo</span>
                 </div>
-                <div class="dress-item">
-                    <svg class="icon-svg" viewBox="0 0 50 100">
-                        <path d="M10 20 L40 20 L45 90 L5 90 Z" fill="none" stroke="black" stroke-width="1"/>
-                        <path d="M25 20 L15 40 M25 20 L35 40" fill="none" stroke="black" stroke-width="1"/>
-                        <rect x="22" y="45" width="6" height="10" fill="black"/>
+                <div class="icon-box">
+                    <svg viewBox="0 0 50 100">
+                        <path d="M10 20 L40 20 L45 90 L5 90 Z" />
+                        <path d="M25 20 L12 45 M25 20 L38 45" />
+                        <path d="M23 45 L27 45 L27 55 L23 55 Z" fill="black" />
                     </svg>
-                    <div class="icon-label">Smoking</div>
+                    <span>Smoking</span>
                 </div>
             </div>
 
             <div class="prohibited">
-                <p style="font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 15px; opacity: 0.6;">COLORES RESERVADOS:</p>
-                <div class="color-dot" style="background: #fff;"></div>
-                <div class="color-dot" style="background: #f5f5dc;"></div>
-                <div class="color-dot" style="background: #fffafa;"></div>
+                <p style="font-size: 0.7rem; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 20px;">COLORES EXCLUSIVOS PARA LA NOVIA:</p>
+                <div class="dot" style="background: #ffffff;"></div>
+                <div class="dot" style="background: #f5f5dc;"></div>
+                <div class="dot" style="background: #fffafa;"></div>
             </div>
-        </div>
+        </section>
 
-        <section id="regalos" style="padding-top: 100px;">
-            <h2 class="section-title">Mesa de Regalos</h2>
-            <div class="gift-grid">
+        <section style="margin-top: 120px; text-align: center;">
+            <h2 class="section-title" style="margin-bottom: 20px; font-family: 'Playfair Display'; font-size: 2.5rem;">Mesa de Regalos</h2>
+            <div class="divider"></div>
+            <div class="gifts-grid">
                 <div class="gift-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" width="100">
-                    <p style="margin-top:20px; font-size: 0.9rem;">Nuestra lista seleccionada para el nuevo hogar.</p>
-                    <a href="#" class="amazon-btn">ABRIR LISTA</a>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="amazon-logo">
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 30px;">Hemos seleccionado artículos especiales para nuestro nuevo hogar.</p>
+                    <a href="#" class="btn" style="padding: 12px 30px; font-size: 0.65rem;">Ver Lista</a>
                 </div>
                 <div class="gift-item">
-                    <div style="font-size: 2.5rem; margin-bottom: 10px;">✉</div>
-                    <h3>Lluvia de Sobres</h3>
-                    <p style="font-size: 0.9rem;">Agradecemos su detalle en el espacio destinado el día del evento.</p>
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">✉</div>
+                    <h3 style="font-family: 'Playfair Display'; font-weight: 400; margin-bottom: 10px;">Lluvia de Sobres</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Su presencia es nuestro mayor regalo, pero si desean tener un detalle, contaremos con un cofre en la recepción.</p>
                 </div>
             </div>
         </section>
 
-        <section style="text-align: center; padding-top: 100px;">
-            <h2 class="section-title">R.S.V.P</h2>
-            <p style="margin-bottom: 40px;">Tu presencia es nuestro mejor regalo.<br>Por favor confirma antes del 15 de Mayo de 2026.</p>
-            <a href="https://wa.me/528100000000" class="btn-main" style="background: var(--dark); color: white;">Confirmar Asistencia</a>
+        <section style="text-align: center; padding-top: 120px;">
+            <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; font-style: italic;">R.S.V.P</h2>
+            <p style="margin: 20px 0 40px; font-weight: 300;">Agradecemos su confirmación antes del 15 de Mayo de 2026.</p>
+            <a href="https://wa.me/528100000000" class="btn" style="background: var(--dark); color: white;">Confirmar Asistencia</a>
         </section>
 
     </div>
 
-    <footer style="padding: 100px 0; border-top: 1px solid var(--border); text-align: center; opacity: 0.5; font-size: 0.7rem; letter-spacing: 4px;">
-        DIEGO & MONICA | MMXVI - MMXXVI
+    <footer style="padding: 80px 0; border-top: 1px solid var(--gray); text-align: center; color: var(--text-muted); font-size: 0.7rem; letter-spacing: 5px;">
+        DIEGO & MONICA | MONTERREY 2026
     </footer>
 
     <script>
